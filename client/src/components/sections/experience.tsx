@@ -54,7 +54,7 @@ export default function Experience() {
                   
                   {/* Content Card */}
                   <div className={`ml-20 md:ml-0 md:w-5/12 ${isEven ? 'md:mr-auto' : 'md:ml-auto'}`}>
-                    <GlassCard className="p-6 rounded-3xl hover-3d">
+                    <GlassCard className="p-6 rounded-3xl hover-lift mirror-effect">
                       <div className="flex items-center gap-3 mb-3">
                         <div className={`w-12 h-12 bg-gradient-to-r ${exp.color} rounded-full flex items-center justify-center`}>
                           <IconComponent className="text-white h-5 w-5" />

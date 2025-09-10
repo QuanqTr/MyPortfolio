@@ -63,7 +63,7 @@ export default function Achievements() {
             const IconComponent = achievement.icon;
             
             return (
-              <GlassCard key={achievement.id} className="p-6 rounded-3xl hover-3d flex items-center gap-4">
+              <GlassCard key={achievement.id} className="p-6 rounded-3xl hover-lift mirror-effect flex items-center gap-4">
                 <div className={`w-16 h-16 bg-gradient-to-r ${achievement.gradient} rounded-full flex items-center justify-center flex-shrink-0`}>
                   <IconComponent className="text-white text-xl" />
                 </div>

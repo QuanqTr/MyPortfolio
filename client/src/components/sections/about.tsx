@@ -18,7 +18,7 @@ export default function About() {
         </div>
 
         {/* Main About Content */}
-        <GlassCard className="p-12 rounded-3xl hover-3d mb-12">
+        <GlassCard className="p-12 rounded-3xl hover-lift mirror-effect mb-12">
           <div className="grid md:grid-cols-3 gap-12 items-start">
             {/* Profile Image */}
             <div className="md:col-span-1 flex justify-center">
@@ -78,7 +78,7 @@ export default function About() {
         </GlassCard>
 
         {/* Education Section */}
-        <GlassCard className="p-8 rounded-3xl hover-3d">
+        <GlassCard className="p-8 rounded-3xl hover-lift mirror-effect">
           <div className="flex items-center gap-3 mb-8">
             <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
               <GraduationCap className="text-white h-6 w-6" />

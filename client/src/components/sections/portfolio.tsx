@@ -71,7 +71,7 @@ export default function Portfolio() {
             const IconComponent = project.icon;
             
             return (
-              <GlassCard key={project.id} className="rounded-3xl overflow-hidden hover-3d group">
+              <GlassCard key={project.id} className="rounded-3xl overflow-hidden hover-lift mirror-effect group">
                 {/* Project Preview */}
                 <div className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>

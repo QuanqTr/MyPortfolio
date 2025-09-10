@@ -143,7 +143,7 @@ export default function Contact() {
           </div>
           
           {/* Contact Form */}
-          <GlassCard className="p-8 rounded-3xl">
+          <GlassCard className="p-8 rounded-3xl mirror-effect">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
