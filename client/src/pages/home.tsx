@@ -13,7 +13,7 @@ import ParallaxSection from "@/components/animations/parallax-section";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden background-pattern">
       <ScrollProgress />
       <FloatingNav />
       <Header />

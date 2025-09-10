@@ -12,7 +12,7 @@ export default function Hero() {
       <FloatingElements />
       
       <div className="text-center z-10 parallax-element px-6">
-        <h1 className="text-6xl md:text-8xl font-black text-white mb-6 animate-pulse-slow">
+        <h1 className="text-6xl md:text-8xl font-black text-white mb-6 animate-pulse-slow text-glow">
           Creative
           <span className="block text-gradient">Developer</span>
         </h1>
