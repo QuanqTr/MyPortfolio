@@ -9,7 +9,6 @@ import Contact from "@/components/sections/contact";
 import BlogPreview from "@/components/sections/blog-preview";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import FloatingNav from "@/components/ui/floating-nav";
-import ThemeToggle from "@/components/ui/theme-toggle";
 import ParallaxSection from "@/components/animations/parallax-section";
 
 export default function Home() {
@@ -17,7 +16,6 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden background-pattern">
       <ScrollProgress />
       <FloatingNav />
-      <ThemeToggle />
       <Header />
       
       <main>
