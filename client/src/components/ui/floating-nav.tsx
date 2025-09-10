@@ -41,12 +41,12 @@ export default function FloatingNav() {
   };
 
   return (
-    <div className="floating-nav hidden lg:block">
+    <div className="floating-nav-vertical hidden lg:flex">
       {sections.map((section) => (
         <button
           key={section.id}
           onClick={() => scrollToSection(section.id)}
-          className={`nav-dot ${activeSection === section.id ? "active" : ""}`}
+          className={`nav-dot-vertical ${activeSection === section.id ? "active" : ""}`}
           aria-label={`Navigate to ${section.label} section`}
           data-testid={`nav-dot-${section.id}`}
         />
