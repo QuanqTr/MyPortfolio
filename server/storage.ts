@@ -159,6 +159,9 @@ export class MemStorage implements IStorage {
     const post: BlogPost = { 
       ...insertPost, 
       id, 
+      tags: insertPost.tags || [],
+      featured: insertPost.featured || false,
+      published: insertPost.published || false,
       createdAt: now, 
       updatedAt: now 
     };

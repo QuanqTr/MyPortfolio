@@ -51,12 +51,12 @@ export default function Header() {
               </button>
             ) : (
               <Link key={item.name} href={item.href}>
-                <a 
-                  className="hover:text-primary transition-colors duration-300"
+                <span 
+                  className="hover:text-primary transition-colors duration-300 cursor-pointer"
                   data-testid={`link-nav-${item.name.toLowerCase()}`}
                 >
                   {item.name}
-                </a>
+                </span>
               </Link>
             )
           ))}
@@ -90,13 +90,13 @@ export default function Header() {
                 </button>
               ) : (
                 <Link key={item.name} href={item.href}>
-                  <a 
-                    className="block hover:text-primary transition-colors duration-300"
+                  <span 
+                    className="block hover:text-primary transition-colors duration-300 cursor-pointer"
                     onClick={() => setIsOpen(false)}
                     data-testid={`link-mobile-nav-${item.name.toLowerCase()}`}
                   >
                     {item.name}
-                  </a>
+                  </span>
                 </Link>
               )
             ))}

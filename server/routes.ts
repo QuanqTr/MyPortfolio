@@ -11,7 +11,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const category = req.query.category as string;
       let posts;
       
-      if (category && category !== "All Posts") {
+      if (category && category !== "All Posts" && category !== "") {
         posts = await storage.getBlogPostsByCategory(category);
       } else {
         posts = await storage.getBlogPosts();
