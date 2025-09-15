@@ -3,21 +3,25 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useScrollHeader } from "@/hooks/use-scroll-header";
+import { useActiveSection } from "@/hooks/use-active-section";
 import ThemeToggle from "@/components/ui/theme-toggle";
 
 const navigation = [
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "Achievements", href: "#achievements" },
-  { name: "Contact", href: "#contact" },
-  { name: "Blog", href: "/blog" },
+  { name: "About", href: "#about", sectionId: "about" },
+  { name: "Experience", href: "#experience", sectionId: "experience" },
+  { name: "Portfolio", href: "#portfolio", sectionId: "portfolio" },
+  { name: "Achievements", href: "#achievements", sectionId: "achievements" },
+  { name: "Contact", href: "#contact", sectionId: "contact" },
+  { name: "Blog", href: "/blog", sectionId: "blog" },
 ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [location] = useLocation();
   const isMobile = useIsMobile();
+  const { scrolled } = useScrollHeader();
+  const activeSection = useActiveSection();
 
   const scrollToSection = (href: string) => {
     if (href.startsWith("#")) {
@@ -29,11 +33,22 @@ export default function Header() {
     setIsOpen(false);
   };
 
+  const isNavActive = (item: any) => {
+    if (item.href.startsWith("#")) {
+      return activeSection === item.sectionId;
+    }
+    return location === item.href;
+  };
+
   return (
-    <header className="fixed top-0 w-full z-50 glass-card">
+    <header className={`fixed top-0 w-full z-50 transition-all duration-700 ease-out ${
+      scrolled 
+        ? 'unified-glass-scrolled backdrop-blur-2xl border-b border-white/10' 
+        : 'unified-glass backdrop-blur-xl'
+    }`}>
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link href="/">
-          <div className="text-2xl font-bold text-gradient cursor-pointer" data-testid="link-home">
+          <div className="text-2xl font-bold unified-text-gradient cursor-pointer drop-shadow-lg transition-all duration-300 hover:scale-105" data-testid="link-home">
             Portfolio
           </div>
         </Link>
@@ -45,7 +60,11 @@ export default function Header() {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="hover:text-primary transition-colors duration-300"
+                className={`relative font-medium transition-all duration-300 nav-underline-effect drop-shadow-sm ${
+                  isNavActive(item) 
+                    ? 'text-blue-500 dark:text-blue-400 nav-active' 
+                    : 'unified-nav-text hover:text-blue-400 dark:hover:text-blue-300'
+                }`}
                 data-testid={`button-nav-${item.name.toLowerCase()}`}
               >
                 {item.name}
@@ -53,7 +72,11 @@ export default function Header() {
             ) : (
               <Link key={item.name} href={item.href}>
                 <span 
-                  className="hover:text-primary transition-colors duration-300 cursor-pointer"
+                  className={`relative font-medium transition-all duration-300 cursor-pointer nav-underline-effect drop-shadow-sm ${
+                    isNavActive(item) 
+                      ? 'text-blue-500 dark:text-blue-400 nav-active' 
+                      : 'unified-nav-text hover:text-blue-400 dark:hover:text-blue-300'
+                  }`}
                   data-testid={`link-nav-${item.name.toLowerCase()}`}
                 >
                   {item.name}
@@ -71,6 +94,7 @@ export default function Header() {
             variant="ghost"
             size="icon"
             onClick={() => setIsOpen(!isOpen)}
+            className="unified-nav-text hover:bg-white/10 dark:hover:bg-white/5"
             data-testid="button-mobile-menu"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -80,14 +104,14 @@ export default function Header() {
       
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden glass-card border-t border-border">
+        <div className="md:hidden unified-glass border-t border-white/10 dark:border-white/5">
           <div className="container mx-auto px-6 py-4 space-y-4">
             {navigation.map((item) => (
               item.href.startsWith("#") ? (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left hover:text-primary transition-colors duration-300"
+                  className="block w-full text-left font-medium unified-nav-text hover:text-blue-400 dark:hover:text-blue-300 transition-all duration-300 py-2"
                   data-testid={`button-mobile-nav-${item.name.toLowerCase()}`}
                 >
                   {item.name}
@@ -95,7 +119,7 @@ export default function Header() {
               ) : (
                 <Link key={item.name} href={item.href}>
                   <span 
-                    className="block hover:text-primary transition-colors duration-300 cursor-pointer"
+                    className="block font-medium unified-nav-text hover:text-blue-400 dark:hover:text-blue-300 transition-all duration-300 cursor-pointer py-2"
                     onClick={() => setIsOpen(false)}
                     data-testid={`link-mobile-nav-${item.name.toLowerCase()}`}
                   >

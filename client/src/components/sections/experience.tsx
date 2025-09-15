@@ -4,28 +4,28 @@ import { Briefcase, Code, GraduationCap } from "lucide-react";
 const experiences = [
   {
     id: 1,
-    title: "Senior Full Stack Developer",
-    company: "Tech Innovations Co.",
-    period: "2022 - Present",
-    description: "Leading a team of 5 developers in building scalable web applications using React, Node.js, and cloud technologies.",
+    title: "Software Developer",
+    company: "Current Position",
+    period: "2024 - Present",
+    description: "Developing modern web and mobile applications using cutting-edge technologies. Focused on creating scalable, maintainable solutions.",
     icon: Briefcase,
     color: "from-primary to-secondary",
   },
   {
     id: 2,
-    title: "Frontend Developer",
-    company: "Digital Agency Plus",
-    period: "2020 - 2022",
-    description: "Developed responsive web applications and collaborated with design teams to create exceptional user experiences.",
+    title: "Full-Stack Developer",
+    company: "Previous Experience",
+    period: "2023 - 2024",
+    description: "Built responsive web applications with modern frameworks. Collaborated with teams to deliver high-quality software solutions.",
     icon: Code,
     color: "from-secondary to-accent",
   },
   {
     id: 3,
     title: "Junior Developer",
-    company: "StartUp Venture",
-    period: "2019 - 2020",
-    description: "Started my career building web applications and learning modern development practices in an agile environment.",
+    company: "Starting Career",
+    period: "2022 - 2023",
+    description: "Began professional journey in software development. Learned industry best practices and modern development workflows.",
     icon: GraduationCap,
     color: "from-accent to-primary",
   },
@@ -33,7 +33,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 px-6 bg-gradient-to-br from-muted/30 to-secondary/10">
+    <section id="experience" className="py-20 px-6 component-bg">
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-5xl font-bold text-center mb-16 text-gradient">Experience Timeline</h2>
         
@@ -54,7 +54,7 @@ export default function Experience() {
                   
                   {/* Content Card */}
                   <div className={`ml-20 md:ml-0 md:w-5/12 ${isEven ? 'md:mr-auto' : 'md:ml-auto'}`}>
-                    <GlassCard className="p-6 rounded-3xl hover-lift mirror-effect">
+                    <div className="info-card hover-lift mirror-effect">
                       <div className="flex items-center gap-3 mb-3">
                         <div className={`w-12 h-12 bg-gradient-to-r ${exp.color} rounded-full flex items-center justify-center`}>
                           <IconComponent className="text-white h-5 w-5" />
@@ -66,7 +66,7 @@ export default function Experience() {
                       </div>
                       <p className="text-sm text-accent font-semibold mb-2">{exp.period}</p>
                       <p className="text-muted-foreground">{exp.description}</p>
-                    </GlassCard>
+                    </div>
                   </div>
                 </div>
               );

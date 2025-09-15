@@ -28,7 +28,7 @@ export default function BlogPreview() {
 
   if (isLoading) {
     return (
-      <section id="blog" className="py-20 px-6 bg-gradient-to-br from-secondary/10 to-accent/10">
+      <section id="blog" className="py-20 px-6 component-bg">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold mb-6 text-gradient">Latest Blog Posts</h2>
@@ -55,7 +55,7 @@ export default function BlogPreview() {
   }
 
   return (
-    <section id="blog" className="py-20 px-6 bg-gradient-to-br from-secondary/10 to-accent/10">
+    <section id="blog" className="py-20 px-6 component-bg">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-6 text-gradient">Latest Blog Posts</h2>
@@ -82,7 +82,7 @@ export default function BlogPreview() {
         
         {/* Featured Blog Post */}
         {featuredPosts.length > 0 && (
-          <GlassCard className="rounded-3xl overflow-hidden mb-12 hover-3d">
+          <div className="info-card rounded-3xl overflow-hidden mb-12 hover-3d">
             <div className="md:flex">
               <div className="md:w-1/2 h-64 md:h-auto bg-gradient-to-br from-primary to-secondary relative">
                 <div className="absolute inset-0 bg-black/20"></div>
@@ -120,13 +120,13 @@ export default function BlogPreview() {
                 </div>
               </div>
             </div>
-          </GlassCard>
+          </div>
         )}
         
         {/* Blog Grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {postsToShow.slice(featuredPosts.length > 0 ? 1 : 0).map((post, index) => (
-            <article key={post.id} className="glass-card rounded-3xl overflow-hidden hover-3d">
+            <article key={post.id} className="info-card rounded-3xl overflow-hidden hover-3d">
               <div className="h-48 bg-gradient-to-br from-secondary to-accent relative">
                 <div className="absolute bottom-4 left-4">
                   <Badge className="bg-white/20 backdrop-blur-sm text-white border-white/20">

@@ -26,19 +26,19 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    value: "hello@portfolio.com",
+    value: "trandaiquang.dev@gmail.com",
     gradient: "from-primary to-secondary",
   },
   {
     icon: Phone,
     title: "Phone",
-    value: "+84 123 456 789",
+    value: "+84 XXX XXX XXX",
     gradient: "from-secondary to-accent",
   },
   {
     icon: MapPin,
     title: "Location",
-    value: "Ho Chi Minh City, Vietnam",
+    value: "Vietnam",
     gradient: "from-accent to-primary",
   },
 ];
@@ -91,7 +91,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-6">
+    <section id="contact" className="py-20 px-6 component-bg">
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-5xl font-bold text-center mb-16 text-gradient">Get In Touch</h2>
         
@@ -143,7 +143,7 @@ export default function Contact() {
           </div>
           
           {/* Contact Form */}
-          <GlassCard className="p-8 rounded-3xl mirror-effect">
+          <div className="info-card mirror-effect">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
@@ -241,7 +241,7 @@ export default function Contact() {
                 </Button>
               </form>
             </Form>
-          </GlassCard>
+          </div>
         </div>
       </div>
     </section>

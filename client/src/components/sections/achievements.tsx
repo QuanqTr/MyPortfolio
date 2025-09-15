@@ -54,7 +54,7 @@ const achievements = [
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="py-20 px-6 bg-gradient-to-br from-accent/10 to-primary/10">
+    <section id="achievements" className="py-20 px-6 component-bg">
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-5xl font-bold text-center mb-16 text-gradient">Achievements</h2>
         
@@ -63,7 +63,7 @@ export default function Achievements() {
             const IconComponent = achievement.icon;
             
             return (
-              <GlassCard key={achievement.id} className="p-6 rounded-3xl hover-lift mirror-effect flex items-center gap-4">
+              <div key={achievement.id} className="info-card hover-lift mirror-effect flex items-center gap-4">
                 <div className={`w-16 h-16 bg-gradient-to-r ${achievement.gradient} rounded-full flex items-center justify-center flex-shrink-0`}>
                   <IconComponent className="text-white text-xl" />
                 </div>
@@ -77,7 +77,7 @@ export default function Achievements() {
                     ></div>
                   </div>
                 </div>
-              </GlassCard>
+              </div>
             );
           })}
         </div>

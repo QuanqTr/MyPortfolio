@@ -3,7 +3,6 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-import ScrollProgress from "@/components/ui/scroll-progress";
 import GlassCard from "@/components/ui/glass-card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -56,7 +55,6 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <ScrollProgress />
       <Header />
       
       <main>

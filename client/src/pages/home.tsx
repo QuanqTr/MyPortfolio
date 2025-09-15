@@ -7,23 +7,23 @@ import Portfolio from "@/components/sections/portfolio";
 import Achievements from "@/components/sections/achievements";
 import Contact from "@/components/sections/contact";
 import BlogPreview from "@/components/sections/blog-preview";
-import ScrollProgress from "@/components/ui/scroll-progress";
 import FloatingNav from "@/components/ui/floating-nav";
+import LoadingScreen from "@/components/ui/loading-screen";
 import ParallaxSection from "@/components/animations/parallax-section";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden background-pattern">
-      <ScrollProgress />
+      <LoadingScreen />
       <FloatingNav />
       <Header />
       
       <main>
         <Hero />
         
-        <ParallaxSection>
+        {/* <ParallaxSection>
           <div className="section-divider" />
-        </ParallaxSection>
+        </ParallaxSection> */}
         
         <About />
         <Experience />

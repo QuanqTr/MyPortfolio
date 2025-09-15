@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams, Link } from "wouter";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-import ScrollProgress from "@/components/ui/scroll-progress";
 import GlassCard from "@/components/ui/glass-card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -38,7 +37,6 @@ export default function BlogPost() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background text-foreground">
-        <ScrollProgress />
         <Header />
         <main className="container mx-auto px-6 py-20 max-w-4xl">
           <div className="animate-pulse space-y-8">
@@ -81,7 +79,6 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <ScrollProgress />
       <Header />
       
       <main>

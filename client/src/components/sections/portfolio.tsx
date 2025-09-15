@@ -97,7 +97,7 @@ export default function Portfolio() {
                   {/* Action Buttons */}
                   <div className="flex gap-3">
                     <Button 
-                      className={`flex-1 bg-${project.color} hover:opacity-90 transition-opacity`}
+                      className="flex-1 view-live-btn"
                       data-testid={`button-view-live-${project.id}`}
                     >
                       <ExternalLink className="h-4 w-4 mr-2" />
