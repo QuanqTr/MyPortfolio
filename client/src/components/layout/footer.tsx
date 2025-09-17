@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Github, Linkedin, Facebook, GitlabIcon as Gitlab } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -64,32 +64,44 @@ export default function Footer() {
                 size="icon" 
                 className="w-10 h-10 bg-muted/20 rounded-full hover:bg-muted/40 transition-colors"
                 data-testid="button-social-linkedin"
+                asChild
               >
-                <Linkedin className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
+                <a href="https://www.linkedin.com/in/quang-tran-dai-81173234b/" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
+                </a>
               </Button>
               <Button 
                 variant="ghost" 
                 size="icon" 
                 className="w-10 h-10 bg-muted/20 rounded-full hover:bg-muted/40 transition-colors"
                 data-testid="button-social-github"
+                asChild
               >
-                <Github className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
+                <a href="https://github.com/QuanqTr" target="_blank" rel="noopener noreferrer">
+                  <Github className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
+                </a>
               </Button>
               <Button 
                 variant="ghost" 
                 size="icon" 
                 className="w-10 h-10 bg-muted/20 rounded-full hover:bg-muted/40 transition-colors"
-                data-testid="button-social-twitter"
+                data-testid="button-social-facebook"
+                asChild
               >
-                <Twitter className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
+                <a href="https://www.facebook.com/quang.contact" target="_blank" rel="noopener noreferrer">
+                  <Facebook className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
+                </a>
               </Button>
               <Button 
                 variant="ghost" 
                 size="icon" 
                 className="w-10 h-10 bg-muted/20 rounded-full hover:bg-muted/40 transition-colors"
-                data-testid="button-social-instagram"
+                data-testid="button-social-gitlab"
+                asChild
               >
-                <Instagram className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
+                <a href="https://gitlab.com/QuanqTr" target="_blank" rel="noopener noreferrer">
+                  <Gitlab className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
+                </a>
               </Button>
             </div>
           </div>
@@ -97,7 +109,7 @@ export default function Footer() {
         
         <div className="border-t border-border pt-8 text-center">
           <p className="text-muted-foreground">
-            &copy; 2023 Portfolio. All rights reserved. Built with ❤️ and modern web technologies.
+            Copyright © Quang.Tr. All rights reserved.
           </p>
         </div>
       </div>

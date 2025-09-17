@@ -13,7 +13,6 @@ const navigation = [
   { name: "Portfolio", href: "#portfolio", sectionId: "portfolio" },
   { name: "Achievements", href: "#achievements", sectionId: "achievements" },
   { name: "Contact", href: "#contact", sectionId: "contact" },
-  { name: "Blog", href: "/blog", sectionId: "blog" },
 ];
 
 export default function Header() {
@@ -48,8 +47,15 @@ export default function Header() {
     }`}>
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link href="/">
-          <div className="text-2xl font-bold unified-text-gradient cursor-pointer drop-shadow-lg transition-all duration-300 hover:scale-105" data-testid="link-home">
-            Portfolio
+          <div className="relative cursor-pointer transition-all duration-300 hover:scale-105" data-testid="link-home">
+            <img 
+              src="/Logo.png" 
+              alt="Logo" 
+              className="w-10 h-10 object-contain"
+            />
+            <span className="absolute left-9 top-1/2 transform -translate-y-1/2 text-2xl font-bold unified-text-gradient drop-shadow-lg whitespace-nowrap hidden lg:block">
+              uang.tr
+            </span>
           </div>
         </Link>
         

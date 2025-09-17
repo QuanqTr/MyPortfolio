@@ -1,14 +1,28 @@
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import FloatingElements from "@/components/animations/floating-elements";
 import { useTypewriter } from "@/hooks/use-typewriter";
+import { Download, FileText } from "lucide-react";
+import { useState } from "react";
 
 export default function Hero() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   const scrollToPortfolio = () => {
     document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/CV_TranDaiQuang.pdf';
+    link.download = 'CV_TranDaiQuang.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const displayText = useTypewriter({
-    words: ["UI - UX Designer", "Frontend Developer", "Video Editor"],
+    words: ["UI - UX Designer", "Front-end Developer", "Video Editor"],
     delay: 2000,
   });
 
@@ -31,17 +45,40 @@ export default function Hero() {
           </div>
           
           <p className="text-xl md:text-2xl unified-nav-text mb-8 max-w-2xl mx-auto fade-in-up drop-shadow-sm">
-            Passionate software developer creating innovative solutions with modern technologies
+           Alola. I'm a passionate front-end developer who loves building clean, responsive, and user-friendly websites. 
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-up-delay">
-            <Button
-              onClick={scrollToPortfolio}
-              size="lg"
-              className="unified-glass px-8 py-4 rounded-xl font-semibold unified-nav-text hover-lift transition-all duration-500 border border-blue-200/20"
-            >
-              View My Work
-            </Button>
+            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+              <DialogTrigger asChild>
+                <Button
+                  size="lg"
+                  className="unified-glass px-8 py-4 rounded-xl font-semibold unified-nav-text hover-lift transition-all duration-500 border border-blue-200/20"
+                >
+                  <FileText className="w-5 h-5 mr-2" />
+                  View My CV
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-4xl max-h-[96vh] w-[85vw] p-0">
+                <DialogHeader className="p-4 pb-2 border-b border-muted-foreground/10">
+                  <DialogTitle className="text-xl font-bold flex items-center gap-2">
+                    <FileText className="w-5 h-5" />
+                    CV - Trần Đại Quang
+                  </DialogTitle>
+                </DialogHeader>
+                <div className="px-4 pb-4 h-[88vh]">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden shadow-inner border h-full">
+                    <iframe
+                      src="/CV_TranDaiQuang.pdf"
+                      width="100%"
+                      height="100%"
+                      className="border-0"
+                      title="CV Preview"
+                    />
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
             <Button
               variant="outline"
               size="lg"

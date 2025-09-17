@@ -3,8 +3,12 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertBlogPostSchema, insertContactMessageSchema } from "@shared/schema";
 import { z } from "zod";
+import { createEmailService } from "./email-service";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Initialize email service
+  const emailService = createEmailService();
+  
   // Blog Posts Routes
   app.get("/api/blog/posts", async (req, res) => {
     try {
@@ -98,7 +102,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/contact/messages", async (req, res) => {
     try {
       const validatedData = insertContactMessageSchema.parse(req.body);
+      
+      // Save message to database
       const message = await storage.createContactMessage(validatedData);
+      
+      // Send email notification if email service is configured
+      if (emailService) {
+        try {
+          await emailService.sendContactMessage(validatedData, 'tdquang.203@gmail.com');
+          console.log('Email notification sent successfully');
+        } catch (emailError) {
+          console.error('Failed to send email notification:', emailError);
+          // Don't fail the entire request if email fails
+        }
+      }
+      
       res.status(201).json(message);
     } catch (error) {
       if (error instanceof z.ZodError) {
