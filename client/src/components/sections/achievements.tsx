@@ -156,76 +156,47 @@ export default function Achievements() {
           <p className="text-xl text-muted-foreground">Recognition and accomplishments earned through dedication</p>
         </div>
         
-        {/* Horizontal Progress Bar Pagination - Top Position */}
+        {/* Minimal Elegant Pagination */}
         {totalPages > 1 && (
-          <div className="flex flex-col items-center mb-6 space-y-6 relative z-30">
-            {/* Navigation Arrows */}
-            <div className="flex justify-center items-center space-x-2">
-              <Button
-                variant="ghost"
-                size="lg"
-                onClick={goToPrevious}
-                disabled={currentPage === 1}
-                className="rounded-full w-12 h-12 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 relative group hover:bg-transparent focus:bg-transparent text-black hover:text-primary dark:text-white dark:hover:text-primary"
-              >
-                <ChevronLeft className="w-6 h-6" />
-                <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-8"></div>
-              </Button>
-              
-              {/* Horizontal Progress Bar with Connected Dots */}
-              <div className="relative flex items-center">
-                {/* Background Line */}
-                <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-muted-foreground/20 -translate-y-1/2"></div>
-                
-                {/* Progress Line */}
-                <div 
-                  className="absolute top-1/2 left-0 h-0.5 bg-gradient-to-r from-primary to-secondary -translate-y-1/2 transition-all duration-500"
-                  style={{ width: `${((currentPage - 1) / (totalPages - 1)) * 100}%` }}
-                ></div>
-                
-                {/* Dots */}
-                <div className="flex items-center justify-between w-full relative z-10" style={{ width: '56px' }}>
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                    <button
-                      key={page}
-                      onClick={() => goToPage(page)}
-                      className={`relative transition-all duration-300 rounded-full border-2 ${
-                        page === currentPage
-                          ? 'w-4 h-4 bg-gradient-to-r from-primary to-secondary border-primary shadow-lg shadow-primary/30'
-                          : page < currentPage
-                          ? 'w-3 h-3 bg-gradient-to-r from-primary to-secondary border-primary'
-                          : 'w-3 h-3 bg-background border-muted-foreground/40 hover:border-primary/60 hover:scale-110'
-                      }`}
-                    >
-                      {page === currentPage && (
-                        <>
-                          {/* Ripple effect */}
-                          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse"></div>
-                          <div className="absolute inset-0 rounded-full border-2 border-primary animate-ping opacity-20"></div>
-                          <div className="absolute -inset-1 rounded-full border border-primary/30 animate-pulse"></div>
-                        </>
-                      )}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              
-              <Button
-                variant="ghost"
-                size="lg"
-                onClick={goToNext}
-                disabled={currentPage === totalPages}
-                className="rounded-full w-12 h-12 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 relative group hover:bg-transparent focus:bg-transparent text-black hover:text-primary dark:text-white dark:hover:text-primary"
-              >
-                <ChevronRight className="w-6 h-6" />
-                <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-8"></div>
-              </Button>
+          <div className="flex items-center justify-center space-x-6 mb-8">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={goToPrevious}
+              disabled={currentPage === 1}
+              className="group flex items-center space-x-2 px-4 py-2 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 hover:bg-primary/10 text-muted-foreground hover:text-primary"
+            >
+              <ChevronLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" />
+              <span className="text-sm font-medium">Previous</span>
+            </Button>
+            
+            {/* Simple Number Indicators */}
+            <div className="flex items-center space-x-1">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => goToPage(page)}
+                  className={`w-10 h-10 rounded-full text-sm font-medium transition-all duration-200 ${
+                    page === currentPage
+                      ? 'bg-primary text-primary-foreground shadow-md'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
             </div>
             
-            {/* Page Counter */}
-            <div className="text-sm text-muted-foreground font-medium">
-              <span className="text-primary font-semibold">{currentPage}</span> / {totalPages}
-            </div>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={goToNext}
+              disabled={currentPage === totalPages}
+              className="group flex items-center space-x-2 px-4 py-2 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 hover:bg-primary/10 text-muted-foreground hover:text-primary"
+            >
+              <span className="text-sm font-medium">Next</span>
+              <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </Button>
           </div>
         )}
         

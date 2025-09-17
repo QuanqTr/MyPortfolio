@@ -22,20 +22,34 @@ const projects = [
   },
   {
     id: 2,
-    title: "E-commerce Website Supporting People with Disabilities",
-    description: "Coursework project. An e-commerce website to support people with disabilities shopping online.",
-    technologies: ["PHP", "Laragon", "MySQL"],
-    position: "Leader",
-    score: "9.6",
-    github: "https://github.com/QuanqTr/HTC-Shop-MVC-php-",
+    title: "Human Resource Management System",
+    description: "A Human Resource Management System (HRMS) streamlines HR tasks like payroll, recruitment, and performance tracking.",
+    technologies: ["Java Servlet", "SQL Server"],
+    position: "Member",
+    score: "8.8",
+    github: "https://github.com/Nessit2610/MBCService.git",
     viewLive: null,
-    image: null, // No specific image, will show default
-    gradient: "from-secondary to-accent",
-    icon: ShoppingCart,
-    color: "secondary",
+    image: "/human-resource.png", // Human Resource project image
+    gradient: "from-green-400 to-blue-500",
+    icon: Users,
+    color: "green-600",
   },
   {
     id: 3,
+    title: "NMC Project Management UI/UX Design",
+    description: "UI/UX design for project management system created in Figma.",
+    technologies: ["Figma", "UI/UX Design", "Prototyping"],
+    position: "Designer",
+    score: "N/A",
+    github: null,
+    viewLive: "https://www.figma.com/design/QSorb0t16mFSwlvzdSy9Eh/Qu%E1%BA%A3n-l%C3%BD-d%E1%BB%B1-%C3%A1n-NMC?node-id=0-1&t=H6X5lTFZU5hNLJZZ-1",
+    image: "/ux-ui-project.png", // UI/UX project image
+    gradient: "from-orange-400 to-red-500",
+    icon: Star,
+    color: "orange-600",
+  },
+  {
+    id: 4,
     title: "Travel Booking System",
     description: "Internship project at FPT Software Da Nang. A web application for booking travel services.",
     technologies: ["NodeJS", "ReactJS", "MongoDB"],
@@ -49,35 +63,7 @@ const projects = [
     color: "accent",
   },
   {
-    id: 4,
-    title: "Human Resource Management System",
-    description: "Coursework project. A system for managing human resources in organizations.",
-    technologies: ["Java Servlet", "SQL Server"],
-    position: "Member",
-    score: "8.8",
-    github: "https://github.com/Nessit2610/MBCService.git",
-    viewLive: null,
-    image: "/human-resource.png", // Human Resource project image
-    gradient: "from-green-400 to-blue-500",
-    icon: Users,
-    color: "green-600",
-  },
-  {
     id: 5,
-    title: "Static website using HTML and CSS",
-    description: "Web development project with live demo available.",
-    technologies: ["HTML", "CSS", "JavaScript"],
-    position: "Developer",
-    score: "N/A",
-    github: "https://github.com/QuanqTr/BTH_4",
-    viewLive: "https://quanqtr.github.io/BTH_4/",
-    image: "/bth4.png", // BTH4 project image
-    gradient: "from-blue-400 to-purple-500",
-    icon: ExternalLink,
-    color: "blue-600",
-  },
-  {
-    id: 6,
     title: "Static website using HTML and CSS",
     description: "Web development project with live demo available.",
     technologies: ["HTML", "CSS", "JavaScript"],
@@ -91,19 +77,35 @@ const projects = [
     color: "purple-600",
   },
   {
-    id: 7,
-    title: "NMC Project Management UI/UX Design",
-    description: "UI/UX design for project management system created in Figma.",
-    technologies: ["Figma", "UI/UX Design", "Prototyping"],
-    position: "Designer",
+    id: 6,
+    title: "Static website using HTML and CSS",
+    description: "Web development project with live demo available.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    position: "Developer",
     score: "N/A",
-    github: null,
-    viewLive: "https://www.figma.com/design/QSorb0t16mFSwlvzdSy9Eh/Qu%E1%BA%A3n-l%C3%BD-d%E1%BB%B1-%C3%A1n-NMC?node-id=0-1&t=H6X5lTFZU5hNLJZZ-1",
-    image: "/ux-ui-project.png", // UI/UX project image
-    gradient: "from-orange-400 to-red-500",
-    icon: Star,
-    color: "orange-600",
+    github: "https://github.com/QuanqTr/BTH_4",
+    viewLive: "https://quanqtr.github.io/BTH_4/",
+    image: "/bth4.png", // BTH4 project image
+    gradient: "from-blue-400 to-purple-500",
+    icon: ExternalLink,
+    color: "blue-600",
   },
+  
+  {
+    id: 7,
+    title: "E-commerce Website Supporting People with Disabilities",
+    description: "Coursework project. An e-commerce website to support people with disabilities shopping online.",
+    technologies: ["PHP", "Laragon", "MySQL"],
+    position: "Leader",
+    score: "9.6",
+    github: "https://github.com/QuanqTr/HTC-Shop-MVC-php-",
+    viewLive: null,
+    image: null, // No specific image, will show default
+    gradient: "from-secondary to-accent",
+    icon: ShoppingCart,
+    color: "secondary",
+  },
+  
 ];
 
 // Portfolio Item Component with Animation
@@ -294,76 +296,47 @@ export default function Portfolio() {
       <div className="container mx-auto max-w-7xl">
         <h2 className="text-5xl font-bold text-center mb-16 text-gradient">Featured Projects</h2>
         
-        {/* Horizontal Progress Bar Pagination - Top Position */}
+        {/* Minimal Elegant Pagination */}
         {totalPages > 1 && (
-          <div className="flex flex-col items-center mb-6 space-y-6">
-            {/* Navigation Arrows */}
-            <div className="flex justify-center items-center space-x-2">
-              <Button
-                variant="ghost"
-                size="lg"
-                onClick={goToPrevious}
-                disabled={currentPage === 1}
-                className="rounded-full w-12 h-12 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 relative group hover:bg-transparent focus:bg-transparent text-black hover:text-primary dark:text-white dark:hover:text-primary"
-              >
-                <ChevronLeft className="w-6 h-6" />
-                <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-8"></div>
-              </Button>
-              
-              {/* Horizontal Progress Bar with Connected Dots */}
-              <div className="relative flex items-center">
-                {/* Background Line */}
-                <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-muted-foreground/20 -translate-y-1/2"></div>
-                
-                {/* Progress Line */}
-                <div 
-                  className="absolute top-1/2 left-0 h-0.5 bg-gradient-to-r from-primary to-secondary -translate-y-1/2 transition-all duration-500"
-                  style={{ width: `${((currentPage - 1) / (totalPages - 1)) * 100}%` }}
-                ></div>
-                
-                {/* Dots */}
-                <div className="flex items-center justify-between w-full relative z-10" style={{ width: '56px' }}>
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                    <button
-                      key={page}
-                      onClick={() => goToPage(page)}
-                      className={`relative transition-all duration-300 rounded-full border-2 ${
-                        page === currentPage
-                          ? 'w-4 h-4 bg-gradient-to-r from-primary to-secondary border-primary shadow-lg shadow-primary/30'
-                          : page < currentPage
-                          ? 'w-3 h-3 bg-gradient-to-r from-primary to-secondary border-primary'
-                          : 'w-3 h-3 bg-background border-muted-foreground/40 hover:border-primary/60 hover:scale-110'
-                      }`}
-                    >
-                      {page === currentPage && (
-                        <>
-                          {/* Ripple effect */}
-                          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary animate-pulse"></div>
-                          <div className="absolute inset-0 rounded-full border-2 border-primary animate-ping opacity-20"></div>
-                          <div className="absolute -inset-1 rounded-full border border-primary/30 animate-pulse"></div>
-                        </>
-                      )}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              
-              <Button
-                variant="ghost"
-                size="lg"
-                onClick={goToNext}
-                disabled={currentPage === totalPages}
-                className="rounded-full w-12 h-12 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 relative group hover:bg-transparent focus:bg-transparent text-black hover:text-primary dark:text-white dark:hover:text-primary"
-              >
-                <ChevronRight className="w-6 h-6" />
-                <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-8"></div>
-              </Button>
+          <div className="flex items-center justify-center space-x-6 mb-8">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={goToPrevious}
+              disabled={currentPage === 1}
+              className="group flex items-center space-x-2 px-4 py-2 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 hover:bg-primary/10 text-muted-foreground hover:text-primary"
+            >
+              <ChevronLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" />
+              <span className="text-sm font-medium">Previous</span>
+            </Button>
+            
+            {/* Simple Number Indicators */}
+            <div className="flex items-center space-x-1">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => goToPage(page)}
+                  className={`w-10 h-10 rounded-full text-sm font-medium transition-all duration-200 ${
+                    page === currentPage
+                      ? 'bg-primary text-primary-foreground shadow-md'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
             </div>
             
-            {/* Page Counter */}
-            <div className="text-sm text-muted-foreground font-medium">
-              <span className="text-primary font-semibold">{currentPage}</span> / {totalPages}
-            </div>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={goToNext}
+              disabled={currentPage === totalPages}
+              className="group flex items-center space-x-2 px-4 py-2 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 hover:bg-primary/10 text-muted-foreground hover:text-primary"
+            >
+              <span className="text-sm font-medium">Next</span>
+              <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </Button>
           </div>
         )}
         
