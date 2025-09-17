@@ -1,5 +1,6 @@
 import { type User, type InsertUser, type BlogPost, type InsertBlogPost, type ContactMessage, type InsertContactMessage } from "@shared/schema";
 import { randomUUID } from "crypto";
+import { DatabaseStorage } from "./database-storage";
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
@@ -203,4 +204,15 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+// Create storage instance based on environment
+function createStorage(): IStorage {
+  if (process.env.DATABASE_URL && process.env.DATABASE_URL !== 'file:./sqlite.db') {
+    console.log('Using PostgreSQL database storage');
+    return new DatabaseStorage(process.env.DATABASE_URL);
+  } else {
+    console.log('Using in-memory storage');
+    return new MemStorage();
+  }
+}
+
+export const storage = createStorage();

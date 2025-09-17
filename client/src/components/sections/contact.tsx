@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Facebook, GitlabIcon as Gitlab } from "lucide-react";
 import type { InsertContactMessage } from "@shared/schema";
 
 const contactSchema = z.object({
@@ -26,28 +26,28 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    value: "trandaiquang.dev@gmail.com",
+    value: "tdquang.203@gmail.com",
     gradient: "from-primary to-secondary",
   },
   {
     icon: Phone,
     title: "Phone",
-    value: "+84 XXX XXX XXX",
+    value: "+84 33 442 4235",
     gradient: "from-secondary to-accent",
   },
   {
     icon: MapPin,
     title: "Location",
-    value: "Vietnam",
+    value: "Hue City, Vietnam",
     gradient: "from-accent to-primary",
   },
 ];
 
 const socialLinks = [
-  { icon: Linkedin, color: "from-blue-500 to-blue-600", label: "LinkedIn" },
-  { icon: Github, color: "from-gray-700 to-gray-800", label: "GitHub" },
-  { icon: Twitter, color: "from-blue-400 to-blue-500", label: "Twitter" },
-  { icon: Instagram, color: "from-pink-500 to-rose-500", label: "Instagram" },
+  { icon: Linkedin, color: "from-blue-500 to-blue-600", label: "LinkedIn", url: "https://www.linkedin.com/in/quang-tran-dai-81173234b/" },
+  { icon: Github, color: "from-gray-700 to-gray-800", label: "GitHub", url: "https://github.com/QuanqTr" },
+  { icon: Facebook, color: "from-blue-600 to-blue-700", label: "Facebook", url: "https://www.facebook.com/quang.contact" },
+  { icon: Gitlab, color: "from-orange-500 to-orange-600", label: "GitLab", url: "https://gitlab.com/QuanqTr" },
 ];
 
 export default function Contact() {
@@ -134,8 +134,11 @@ export default function Contact() {
                     size="icon"
                     className={`w-12 h-12 bg-gradient-to-r ${social.color} rounded-full hover-3d transition-all duration-300`}
                     data-testid={`button-social-${social.label.toLowerCase()}`}
+                    asChild
                   >
-                    <IconComponent className="h-4 w-4 text-white" />
+                    <a href={social.url} target="_blank" rel="noopener noreferrer">
+                      <IconComponent className="h-4 w-4 text-white" />
+                    </a>
                   </Button>
                 );
               })}

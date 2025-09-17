@@ -6,7 +6,6 @@ import Experience from "@/components/sections/experience";
 import Portfolio from "@/components/sections/portfolio";
 import Achievements from "@/components/sections/achievements";
 import Contact from "@/components/sections/contact";
-import BlogPreview from "@/components/sections/blog-preview";
 import FloatingNav from "@/components/ui/floating-nav";
 import LoadingScreen from "@/components/ui/loading-screen";
 import ParallaxSection from "@/components/animations/parallax-section";
@@ -30,7 +29,6 @@ export default function Home() {
         <Portfolio />
         <Achievements />
         <Contact />
-        <BlogPreview />
       </main>
       
       <Footer />

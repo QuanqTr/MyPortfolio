@@ -79,7 +79,11 @@ export default function LoadingScreen() {
           <div className="absolute logo-container">
             <div className="central-logo">
               <div className="logo-shape">
-                <div className="logo-letter">P</div>
+                <img 
+                  src="/Logo.png" 
+                  alt="Logo" 
+                  className="w-16 h-16 object-contain animate-pulse"
+                />
               </div>
             </div>
           </div>

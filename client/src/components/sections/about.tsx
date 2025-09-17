@@ -1,11 +1,21 @@
 import GlassCard from "@/components/ui/glass-card";
 import { MapPin, Mail, Phone, GraduationCap, Calendar, Award } from "lucide-react";
 import profileImage from "@assets/team-1.jpg";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export default function About() {
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: quoteRef, isVisible: quoteVisible } = useScrollAnimation({ threshold: 0.3 });
+  const { ref: profileRef, isVisible: profileVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: infoRef, isVisible: infoVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
-    <section id="about" className="mb-10 px-6">
-      <div className="container mx-auto max-w-6xl">
+    <section 
+      id="about" 
+      ref={sectionRef}
+      className={`mb-10 px-6 animate-fade-in ${sectionVisible ? 'visible' : ''}`}
+    >
+      <div className="container mx-auto max-w-6xl relative">
         {/* About Header */}
         <div className="flex items-center gap-6 mb-20">
           <div className="relative">
@@ -18,7 +28,10 @@ export default function About() {
         </div>
 
         {/* Inspiration Quote - Separate Section */}
-        <div className="text-center mb-8">
+        <div 
+          ref={quoteRef}
+          className={`text-center mb-6 animate-fade-in ${quoteVisible ? 'visible' : ''}`}
+        >
           <div className="text-2xl md:text-3xl font-light text-muted-foreground/80 mb-2 italic">
             "Simplicity is the bridge between users and technology"
           </div>
@@ -28,7 +41,7 @@ export default function About() {
         </div>
 
         {/* Floating Geometric Art - Decorative Only */}
-        <div className="relative mb-12 h-32 overflow-visible">
+        <div className="relative mb-8 h-32 overflow-visible">
           {/* Floating Shapes Background */}
           <div className="absolute inset-0">
             {/* Large Circle */}
@@ -56,7 +69,10 @@ export default function About() {
         </div>
 
         {/* Main About Content */}
-        <div className="info-card hover-lift mirror-effect mb-12">
+        <div 
+          ref={profileRef}
+          className={`info-card hover-lift mirror-effect mb-8 animate-slide-in-left ${profileVisible ? 'visible' : ''}`}
+        >
           <div className="grid md:grid-cols-3 gap-12 items-start">
             {/* Profile Image */}
             <div className="md:col-span-1 flex justify-center">
@@ -78,17 +94,15 @@ export default function About() {
             <div className="md:col-span-2 space-y-6">
               <div>
                 <p className="text-xl text-muted-foreground mb-4">
-                  Hi there! My name is <span className="font-bold text-primary text-2xl">Trần Đại Quang</span> and I'm a passionate software developer.
+                  Hi there! My name is <span className="font-bold text-primary text-2xl">Trần Đại Quang</span> and I'm a passionate front-end developer.
                 </p>
                 <p className="text-lg text-muted-foreground mb-4">
-                  I'm a dedicated <span className="font-semibold text-secondary">Software Developer</span> with experience in 
-                  building modern web and mobile applications. I specialize in <span className="font-semibold text-accent">full-stack development</span> 
-                  using cutting-edge technologies to create scalable and user-friendly solutions.
+                  I graduated in July 2025 with a degree in  <span className="font-bold text-primary">Software Engineering</span> from Hue University of Sciences, Hue University. My career goal is to become a <span className="font-bold text-primary">full-stack developer and a bridge system engineer (BrSE)</span>
+                  
                 </p>
                 <p className="text-lg text-muted-foreground">
-                  I have hands-on experience with various programming languages and frameworks, 
-                  and I'm constantly learning new technologies to stay current with industry trends. 
-                  My passion lies in creating efficient, clean code and solving complex problems.
+                I previously completed a one-year internship at FPT Software Da Nang in the BrSE 01 program (Korean language track). Currently, I am seeking opportunities as an intern or fresher frontend developer at companies that value young talents who are eager to learn and dedicated to contributing.
+
                 </p>
               </div>
 
@@ -96,19 +110,19 @@ export default function About() {
               <div className="grid md:grid-cols-2 gap-4 pt-6">
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-primary/10 to-transparent">
                   <MapPin className="text-primary h-5 w-5" />
-                  <span className="text-muted-foreground">Ho Chi Minh City, Vietnam</span>
+                  <span className="text-muted-foreground">Hue City, Vietnam</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-secondary/10 to-transparent">
                   <Mail className="text-secondary h-5 w-5" />
-                  <span className="text-muted-foreground">hello@portfolio.com</span>
+                  <span className="text-muted-foreground">tdquang.203@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-accent/10 to-transparent">
                   <Phone className="text-accent h-5 w-5" />
-                  <span className="text-muted-foreground">+84 123 456 789</span>
+                  <span className="text-muted-foreground">+84 33 442 4235</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-primary/10 to-transparent">
                   <Award className="text-primary h-5 w-5" />
-                  <span className="text-muted-foreground">AI Engineer Intern</span>
+                  <span className="text-muted-foreground">Front-end Developer</span>
                 </div>
               </div>
             </div>
@@ -116,7 +130,10 @@ export default function About() {
         </div>
 
         {/* Education Section */}
-        <div className="info-card hover-lift mirror-effect">
+        <div 
+          ref={infoRef}
+          className={`info-card hover-lift mirror-effect animate-slide-in-right ${infoVisible ? 'visible' : ''}`}
+        >
           <div className="flex items-center gap-3 mb-8">
             <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
               <GraduationCap className="text-white h-6 w-6" />
@@ -128,23 +145,28 @@ export default function About() {
             <table className="w-full">
               <tbody className="space-y-4">
                 <tr className="border-b border-border/50">
-                  <td className="py-4 pr-8 font-semibold text-primary min-w-[120px]">Name:</td>
-                  <td className="py-4 text-muted-foreground">Trần Đại Quang</td>
+                  <td className="py-4 pr-8 font-semibold text-primary min-w-[120px]">School:</td>
+                  <td className="py-4 text-muted-foreground">University of Science, Hue University</td>
                 </tr>
                 <tr className="border-b border-border/50">
-                  <td className="py-4 pr-8 font-semibold text-primary">Position:</td>
-                  <td className="py-4 text-muted-foreground">Software Developer</td>
+                  <td className="py-4 pr-8 font-semibold text-primary">GPA:</td>
+                  <td className="py-4 text-muted-foreground">3.08/4.00</td>
                 </tr>
                 <tr className="border-b border-border/50">
-                  <td className="py-4 pr-8 font-semibold text-primary">Experience:</td>
-                  <td className="py-4 text-muted-foreground">Web & Mobile Development</td>
+                  <td className="py-4 pr-8 font-semibold text-primary">Languages:</td>
+                  <td className="py-4 text-muted-foreground">English (B1), Korean (Elementary)</td>
+                </tr>
+                <tr className="border-b border-border/50">
+                  <td className="py-4 pr-8 font-semibold text-primary">Programming Skills:</td>
+                  <td className="py-4 text-muted-foreground">Proficient in Java, JavaScript, C#, PHP</td>
+                </tr>
+                <tr className="border-b border-border/50">
+                  <td className="py-4 pr-8 font-semibold text-primary">Requirements Analysis & System Design:</td>
+                  <td className="py-4 text-muted-foreground">Creating business rules, drawing flowcharts, screen diagrams, database diagrams, etc.</td>
                 </tr>
                 <tr>
-                  <td className="py-4 pr-8 font-semibold text-primary">Focus:</td>
-                  <td className="py-4 text-muted-foreground flex items-center gap-2">
-                    <Award className="h-4 w-4 text-secondary" />
-                    Full-Stack Development
-                  </td>
+                  <td className="py-4 pr-8 font-semibold text-primary">Soft Skills:</td>
+                  <td className="py-4 text-muted-foreground">Strong communication, teamwork, project management, and critical thinking skills with proven ability to collaborate effectively and manage projects.</td>
                 </tr>
               </tbody>
             </table>

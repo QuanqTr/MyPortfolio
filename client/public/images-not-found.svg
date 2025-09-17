@@ -1,0 +1,7 @@
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#f3f4f6"/>
+  <rect x="50" y="40" width="200" height="120" fill="none" stroke="#d1d5db" stroke-width="2" stroke-dasharray="8,4"/>
+  <circle cx="100" cy="80" r="15" fill="#9ca3af"/>
+  <path d="m85 95 30-30 45 45" stroke="#9ca3af" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <text x="150" y="180" font-family="Arial, sans-serif" font-size="14" fill="#6b7280" text-anchor="middle">Image Not Found</text>
+</svg>
