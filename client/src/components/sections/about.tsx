@@ -94,14 +94,14 @@ export default function About() {
             <div className="md:col-span-2 space-y-6">
               <div>
                 <p className="text-xl text-muted-foreground mb-4">
-                  Hi there! My name is <span className="font-bold text-primary text-2xl">Trần Đại Quang</span> and I'm a passionate front-end developer.
+                  Hi there! My name is <span className="font-bold text-primary text-2xl">Trần Đại Quang</span> and I'm a passionate Front-end Developer/UX-UI Designer.
                 </p>
                 <p className="text-lg text-muted-foreground mb-4">
-                  I graduated in July 2025 with a degree in  <span className="font-bold text-primary">Software Engineering</span> from Hue University of Sciences, Hue University. My career goal is to become a <span className="font-bold text-primary">full-stack developer and a bridge system engineer (BrSE)</span>
+                  I graduated in July 2025 with a degree in  <span className="font-bold text-primary">Software Engineering</span> from Hue University of Sciences, Hue University. My career goal is to become a <span className="font-bold text-primary">UX-UI Designer and a bridge system engineer (BrSE)</span>
                   
                 </p>
                 <p className="text-lg text-muted-foreground">
-                I previously completed a one-year internship at FPT Software Da Nang in the BrSE 01 program (Korean language track). Currently, I am seeking opportunities as an intern or fresher frontend developer at companies that value young talents who are eager to learn and dedicated to contributing.
+                I previously completed a one-year internship at FPT Software Da Nang in the BrSE 01 program (Korean language track). Currently, I am seeking opportunities as an intern or fresher Front-end developer, UX/UI designer at companies that value young talents who are eager to learn and dedicated to contributing.
 
                 </p>
               </div>
@@ -122,7 +122,7 @@ export default function About() {
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-primary/10 to-transparent">
                   <Award className="text-primary h-5 w-5" />
-                  <span className="text-muted-foreground">Front-end Developer</span>
+                  <span className="text-muted-foreground">Front-end Developer - UX/UI Designer</span>
                 </div>
               </div>
             </div>
@@ -158,7 +158,7 @@ export default function About() {
                 </tr>
                 <tr className="border-b border-border/50">
                   <td className="py-4 pr-8 font-semibold text-primary">Programming Skills:</td>
-                  <td className="py-4 text-muted-foreground">Proficient in Java, JavaScript, C#, PHP</td>
+                  <td className="py-4 text-muted-foreground">Proficient in Java, JavaScript, PHP</td>
                 </tr>
                 <tr className="border-b border-border/50">
                   <td className="py-4 pr-8 font-semibold text-primary">Requirements Analysis & System Design:</td>
@@ -166,7 +166,11 @@ export default function About() {
                 </tr>
                 <tr>
                   <td className="py-4 pr-8 font-semibold text-primary">Soft Skills:</td>
-                  <td className="py-4 text-muted-foreground">Strong communication, teamwork, project management, and critical thinking skills with proven ability to collaborate effectively and manage projects.</td>
+                  <td className="py-4 text-muted-foreground">Strong communication, teamwork, project management, and critical thinking skills with proven ability to collaborate effectively and manage projects</td>
+                </tr>
+                <tr>
+                  <td className="py-4 pr-8 font-semibold text-primary">Tools:</td>
+                  <td className="py-4 text-muted-foreground">Figma | Photoshop | Illustrator</td>
                 </tr>
               </tbody>
             </table>

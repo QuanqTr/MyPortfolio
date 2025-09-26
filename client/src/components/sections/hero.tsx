@@ -14,15 +14,15 @@ export default function Hero() {
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/CV_TranDaiQuang.pdf';
-    link.download = 'CV_TranDaiQuang.pdf';
+    link.href = '/TranDaiQuang_resume.pdf';
+    link.download = 'TranDaiQuang_resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   const displayText = useTypewriter({
-    words: ["UI - UX Designer", "Front-end Developer", "Video Editor"],
+    words: ["UX/UI Designer", "Front-End Developer"],
     delay: 2000,
   });
 
@@ -45,7 +45,7 @@ export default function Hero() {
           </div>
           
           <p className="text-xl md:text-2xl unified-nav-text mb-8 max-w-2xl mx-auto fade-in-up drop-shadow-sm">
-           Alola. I'm a passionate front-end developer who loves building clean, responsive, and user-friendly websites. 
+           Hi, I’m Quang — a Front-End Developer & UX/UI Designer passionate about intuitive, user-friendly design.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-up-delay">
@@ -69,7 +69,7 @@ export default function Hero() {
                 <div className="px-4 pb-4 h-[88vh]">
                   <div className="bg-gray-50 rounded-lg overflow-hidden shadow-inner border h-full">
                     <iframe
-                      src="/CV_TranDaiQuang.pdf"
+                      src="/TranDaiQuang_resume.pdf"
                       width="100%"
                       height="100%"
                       className="border-0"

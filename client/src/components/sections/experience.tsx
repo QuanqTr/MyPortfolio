@@ -27,7 +27,7 @@ const experiences: Experience[] = [
   },
   {
     id: 2,
-    title: "Club Chairperson",
+    title: "Club Chairman",
     company: "LỬA XANH SOFT SKILLS CLUB",
     location: "Hue University of Sciences",
     period: "Dec 2023 - Oct 2024",
