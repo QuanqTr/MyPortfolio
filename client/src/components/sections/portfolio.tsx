@@ -87,7 +87,7 @@ const projects = [
       score: "N/A",
       github: null,
       viewLive: "https://www.behance.net/gallery/235429585/n-phm-truyn-thong-Hi-Sinh-Vien-Trung",
-      image: "/TLSVv.gif",
+      image: "/TLSVv.png",
       gradient: "from-red-400 to-yellow-400",
       icon: Star,
       color: "red-600",

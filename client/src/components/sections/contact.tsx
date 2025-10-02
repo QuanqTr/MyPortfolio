@@ -154,7 +154,7 @@ export default function Contact() {
                     asChild
                   >
                     <a href={social.url} target="_blank" rel="noopener noreferrer">
-                      <IconComponent className="h-4 w-4 text-white" />
+                      {IconComponent !== null && <IconComponent className="h-4 w-4 text-white" />}
                     </a>
                   </Button>
                 );
