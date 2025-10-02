@@ -11,6 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Facebook, GitlabIcon as Gitlab } from "lucide-react";
+import { Globe } from "lucide-react";
 import type { InsertContactMessage } from "@shared/schema";
 
 const contactSchema = z.object({
@@ -47,7 +48,7 @@ const socialLinks = [
   { icon: Linkedin, color: "from-blue-500 to-blue-600", label: "LinkedIn", url: "https://www.linkedin.com/in/quang-tran-dai-81173234b/" },
   { icon: Github, color: "from-gray-700 to-gray-800", label: "GitHub", url: "https://github.com/QuanqTr" },
   { icon: Facebook, color: "from-blue-600 to-blue-700", label: "Facebook", url: "https://www.facebook.com/quang.contact" },
-  { icon: Gitlab, color: "from-orange-500 to-orange-600", label: "GitLab", url: "https://gitlab.com/QuanqTr" },
+  { icon: null, color: "from-blue-400 to-cyan-400", label: "Behance", url: "https://www.behance.net/quangtrandai" },
 ];
 
 export default function Contact() {
@@ -108,7 +109,7 @@ export default function Contact() {
             
             <div className="space-y-4">
               {contactInfo.map((info) => {
-                const IconComponent = info.icon;
+                const IconComponent = info.icon as React.ElementType;
                 return (
                   <div key={info.title} className="flex items-center gap-4">
                     <div className={`w-12 h-12 bg-gradient-to-r ${info.gradient} rounded-full flex items-center justify-center`}>
@@ -126,6 +127,22 @@ export default function Contact() {
             {/* Social Links */}
             <div className="flex gap-4 pt-6">
               {socialLinks.map((social) => {
+                if (social.label === "Behance") {
+                  return (
+                    <Button
+                      key={social.label}
+                      variant="ghost"
+                      size="icon"
+                      className={`w-12 h-12 bg-gradient-to-r ${social.color} rounded-full hover-3d transition-all duration-300 flex items-center justify-center`}
+                      data-testid={`button-social-behance`}
+                      asChild
+                    >
+                      <a href={social.url} target="_blank" rel="noopener noreferrer">
+                        <span className="text-white font-bold text-lg">Be</span>
+                      </a>
+                    </Button>
+                  );
+                }
                 const IconComponent = social.icon;
                 return (
                   <Button

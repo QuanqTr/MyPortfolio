@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Facebook, GitlabIcon as Gitlab } from "lucide-react";
+import { Globe } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -95,12 +96,12 @@ export default function Footer() {
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="w-10 h-10 bg-muted/20 rounded-full hover:bg-muted/40 transition-colors"
-                data-testid="button-social-gitlab"
+                className="w-10 h-10 bg-muted/20 rounded-full hover:bg-muted/40 transition-colors flex items-center justify-center"
+                data-testid="button-social-behance"
                 asChild
               >
-                <a href="https://gitlab.com/QuanqTr" target="_blank" rel="noopener noreferrer">
-                  <Gitlab className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
+                <a href="https://www.behance.net/quangtrandai" target="_blank" rel="noopener noreferrer">
+                  <span className="text-muted-foreground font-bold text-lg">Be</span>
                 </a>
               </Button>
             </div>

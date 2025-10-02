@@ -6,7 +6,93 @@ import { useState, useEffect } from "react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const projects = [
-  {
+  
+    // Graphic Design Projects
+    {
+      id: "g1",
+      title: "Media Publication for Skill Training Camp",
+      description: "Graphic design for the Skill Training Camp communication publication.",
+      technologies: ["Graphic design", "Photoshop", "Illustrator"],
+      position: "Designer",
+      score: "N/A",
+      github: null,
+      viewLive: "https://www.behance.net/gallery/235435657/Poster-tri-HLKN",
+      image: "/Banner LT.jpg",
+      gradient: "from-pink-400 to-yellow-400",
+      icon: Star,
+      color: "pink-600",
+    },
+    {
+      id: "g2",
+      title: "Media Publication for HSV HUSC Tet Program",
+      description: "Graphic design for the Tet program communication publication of HSV HUSC.",
+      technologies: ["Graphic design", "Photoshop", "Illustrator"],
+      position: "Designer",
+      score: "N/A",
+      github: null,
+      viewLive: "https://www.behance.net/gallery/235774029/Poster-chuong-trinh-tt-HSV-HUSC",
+      image: "/BG tết.png",
+      gradient: "from-yellow-400 to-red-400",
+      icon: Star,
+      color: "yellow-600",
+    },
+    {
+      id: "g3",
+      title: "Media Publication for 30th Anniversary of IT Faculty HUSC",
+      description: "Graphic design for the 30th anniversary communication publication of IT Faculty HUSC.",
+      technologies: ["Graphic design", "Photoshop", "Illustrator"],
+      position: "Designer",
+      score: "N/A",
+      github: null,
+      viewLive: "https://www.behance.net/gallery/235428915/n-phm-truyn-thong-k-nim-30-nam-thanh-lp-Khoa-CNTT",
+      image: "/PosterIT.png",
+      gradient: "from-blue-400 to-yellow-400",
+      icon: Star,
+      color: "blue-600",
+    },
+    {
+      id: "g4",
+      title: "Media Publication for Club Birthday",
+      description: "Graphic design for the Club's birthday communication publication.",
+      technologies: ["Graphic design", "Photoshop", "Illustrator"],
+      position: "Designer",
+      score: "N/A",
+      github: null,
+      viewLive: "https://www.behance.net/gallery/235435717/n-phm-truyn-thong-sinh-nht-10-nam-CLB",
+      image: "/banner sinh nhat.jpg",
+      gradient: "from-purple-400 to-yellow-400",
+      icon: Star,
+      color: "purple-600",
+    },
+    {
+      id: "g5",
+      title: "Media Publication for Club Member Recruitment",
+      description: "Graphic design for the Club member recruitment communication publication.",
+      technologies: ["Graphic design", "Photoshop", "Illustrator"],
+      position: "Designer",
+      score: "N/A",
+      github: null,
+      viewLive: "https://www.behance.net/gallery/235431459/n-phm-truyn-thong-tuyn-thanh-vien-CLB",
+      image: "/Banner TTV.jpg",
+      gradient: "from-green-400 to-yellow-400",
+      icon: Star,
+      color: "green-600",
+    },
+    {
+      id: "g6",
+      title: "Media Publication for Student Union",
+      description: "Graphic design for the Student Union communication publication.",
+      technologies: ["Graphic design", "Photoshop", "Illustrator"],
+      position: "Designer",
+      score: "N/A",
+      github: null,
+      viewLive: "https://www.behance.net/gallery/235429585/n-phm-truyn-thong-Hi-Sinh-Vien-Trung",
+      image: "/TLSVv.gif",
+      gradient: "from-red-400 to-yellow-400",
+      icon: Star,
+      color: "red-600",
+  },
+    {
     id: 1,
     title: "Staff Attendance Management System Using Facial Recognition",
     description: "Internship & Graduation Thesis project at FPT Software Da Nang. A system for managing staff attendance using facial recognition.",
@@ -14,7 +100,7 @@ const projects = [
     position: "Member",
     score: "9.83",
     github: "https://github.com/QuanqTr/FaceAttendance",
-    viewLive: "https://drive.google.com/file/d/1eGfYRfKc2uUQvKIWN_q6msI2TXIWmBBg/view?usp=sharing",
+    viewLive: "https://www.behance.net/gallery/235430503/UI-design-H-thng-chm-cong-bng-nhn-din-khuon-mt",
     image: "/face-attendance.png", // Face attendance project image
     gradient: "from-primary to-secondary",
     icon: Users,
@@ -131,6 +217,7 @@ const PortfolioItem = ({ project, index, isTransitioning, isPreloadingComplete }
               <img 
                 src={project.image} 
                 alt={project.title}
+                loading="lazy"
                 className={`w-full h-full object-cover transition-all duration-500 animate-scale-in ${isVisible && isPreloadingComplete && !isTransitioning ? 'visible' : ''}`}
                 style={{ animationDelay: `${index * 150 + 200}ms` }}
                 onError={(e) => {
@@ -141,6 +228,7 @@ const PortfolioItem = ({ project, index, isTransitioning, isPreloadingComplete }
               <img 
                 src="/images-not-found.png" 
                 alt="Image not found"
+                loading="lazy"
                 className={`w-full h-full object-cover transition-all duration-500 animate-scale-in ${isVisible && isPreloadingComplete && !isTransitioning ? 'visible' : ''}`}
                 style={{ animationDelay: `${index * 150 + 200}ms` }}
               />
